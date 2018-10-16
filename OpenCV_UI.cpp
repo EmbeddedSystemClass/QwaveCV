@@ -263,30 +263,3 @@ EXTERN_C void QwaveCV_UIpicture(lvError * errorHandle, CVImageHandle *hImage, ui
     QwaveCV_ProcessCVError(error, errorHandle);
 }
 
-/*
-EXTERN_C void QwaveCV_UItrackbar(lvError * errorHandle, CVImageHandle *hImage, uint32_t x, uint32_t y, uint32_t width, uint32_t minValue, uint32_t maxValue, uint32_t outValue) {
-    CVERROR error = ERR_SUCCESS;
-    QwaveCV_ReturnOnPreviousError(errorHandle);
-    try
-    {
-        Mat image = QwaveCV_LVToMat(hImage);
-        bool out;
-        cvui::window(image, 15, 50, 180, 180, "Settings");
-        cvui::checkbox(image, 20, 80, "Use Canny Edge", &out);
-        if(out == true)
-            (*use_canny) = 1;
-        else
-           (*use_canny) = 0;
-        cvui::trackbar(image, 15, 110, 165, low_threshold, 0, 150);
-        cvui::trackbar(image, 15, 180, 165, high_threshold, 0, 300);
-        QwaveCV_MatToLV(hImage, image);
-    }
-    catch(CVERROR _err){
-        error = _err;
-    }
-    catch (...){
-        error = ERR_OCV_USER;
-    }
-    QwaveCV_ProcessCVError(error, errorHandle);
-}
-*/
