@@ -85,23 +85,3 @@ EXTERN_C void QwaveCV_cvtColor(lvError * errorHandle, CVImageHandle *hImage, int
 	    QwaveCV_ProcessCVError(error, errorHandle);
 }
 
-/*
-EXTERN_C void QwaveCV_cvuiInit(lvError * errorHandle, uchar * windows_name) {
-    CVERROR error = ERR_SUCCESS;
-    QwaveCV_ReturnOnPreviousError(errorHandle);
-    try
-    {
-	string _windows_name = QwaveCV_CStrToString(windows_name);
-	namedWindow(_windows_name, CV_WINDOW_NORMAL);
-        setWindowProperty(_windows_name, CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
-        cvui::init(_windows_name, -1, false);
-    }
-    catch(CVERROR _err){
-        error = _err;
-    }
-    catch (...){
-        error = ERR_OCV_USER;
-    }
-    QwaveCV_ProcessCVError(error, errorHandle);
-}
-*/
