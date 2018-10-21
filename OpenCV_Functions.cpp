@@ -15,7 +15,7 @@ typedef struct{
 }LVCannyOptions, *CannyOptions_t;
 
 /*
-EXTERN_C void QwaveCV_Template(lvError * errorHandle, CVImageHandle *hImage) {
+EXTERN_C void QwaveCV_Template1(lvError * errorHandle, CVImageHandle *hImage) {
     CVERROR error = ERR_SUCCESS;
     QwaveCV_ReturnOnPreviousError(errorHandle);
     try
@@ -28,6 +28,30 @@ EXTERN_C void QwaveCV_Template(lvError * errorHandle, CVImageHandle *hImage) {
 	// Add your code here!
 
         QwaveCV_MatToLV(hImage, image);
+    }
+    catch(CVERROR _err){
+        error = _err;
+    }
+    catch (...){
+        error = ERR_OCV_USER;
+    }
+    QwaveCV_ProcessCVError(error, errorHandle);
+}
+
+EXTERN_C void QwaveCV_Template2(lvError * errorHandle, CVImageHandle *hImageSrc, CVImageHandle *hImageDsc) {
+    CVERROR error = ERR_SUCCESS;
+    QwaveCV_ReturnOnPreviousError(errorHandle);
+    try
+    {
+        if (!hImageSrc || !hImageDsc) {
+            QwaveCV_ThrowCVError(ERR_NULL_POINTER);
+        }
+
+        Mat image_src = QwaveCV_LVToMat(hImageSrc);
+	Mat image_dsc = QwaveCV_LVToMat(hImageDsc);
+	// Add your code here!
+
+        QwaveCV_MatToLV(hImageDsc, image_dsc);
     }
     catch(CVERROR _err){
         error = _err;
